@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react'
 import './App.css';
+import Cards from './components/Cards';
+import Header from './components/Header';
+import {data} from './data'
 
 function App() {
+
+const [para ,setPara] =useState(100)
+const [basket,setBasket] =useState([])
+const [total,setTotal] =useState()
+
+
+useEffect(()=>{
+  console.log(basket);
+},[basket])
+
+const sifirla =()=>{
+  setTotal([])
+
+}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Header total={total} para={para}/>
+     <Cards 
+     basket={basket}
+     setBasket={setBasket}
+     data={data}
+     total={total}
+     />
+     <button onClick={sifirla}>Sifirla</button>
     </div>
   );
 }

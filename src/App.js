@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './App.css';
+import Basket from './components/Basket';
 import Cards from './components/Cards';
 import Header from './components/Header';
 import {data} from './data'
@@ -29,6 +30,7 @@ const sifirla =()=>{
      total={total}
      />
      <button onClick={sifirla}>Sifirla</button>
+     <Basket basket={basket}/>
     </div>
   );
 }

@@ -1,9 +1,12 @@
 import React from 'react'
 import {Card, Button} from 'react-bootstrap'
-import { data } from '../data'
+
 
 
 const Cardl = ({item,basket,setBasket}) => {
+
+
+   const basketAmo =basket.find(xz=>xz.id === item.id) 
 
 const addEkle=()=>{
 
@@ -53,7 +56,7 @@ const removeBasket=()=>{
     </Card.Text>
     <div>${item.price}</div>
     <Button variant="primary" onClick={removeBasket}>cikar</Button>
-    <span className='amount'>0</span>
+    <span className='amount'>{basketAmo && basketAmo.amount}</span>
     <Button variant="primary" onClick={addEkle}>ekle</Button>
   </Card.Body>
 </Card>
